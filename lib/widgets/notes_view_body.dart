@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_application/widgets/custom_appbar.dart';
 import 'package:notes_application/widgets/note_item.dart';
+import 'package:notes_application/widgets/note_listview.dart';
 
 class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
@@ -15,10 +16,7 @@ class NotesViewBody extends StatelessWidget {
             height: 32,
           ),
           CustomAppBar(),
-          SizedBox(
-            height: 16,
-          ),
-          NoteItem(),
+          Expanded(child: NotesListView())
         ],
       ),
     );
