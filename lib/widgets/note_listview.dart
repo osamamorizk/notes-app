@@ -10,6 +10,9 @@ class NotesListView extends StatelessWidget {
     Color.fromARGB(255, 243, 102, 92),
     Color(0xffFFCC80),
     Color.fromARGB(255, 113, 202, 243),
+    Color.fromARGB(255, 243, 102, 92),
+    Color(0xffFFCC80),
+    Color.fromARGB(255, 113, 202, 243),
     Color.fromARGB(255, 243, 102, 92)
   ];
   @override
