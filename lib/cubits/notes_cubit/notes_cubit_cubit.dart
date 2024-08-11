@@ -1,23 +1,20 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
-import 'package:meta/meta.dart';
 import 'package:notes_application/consts.dart';
-import 'package:notes_application/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_application/models/note_model.dart';
 
 part 'notes_cubit_state.dart';
 
-class NotesCubitCubit extends Cubit<NotesCubitState> {
-  NotesCubitCubit() : super(NotesCubitInitial());
-
+class NotesCubit extends Cubit<NotesCubitState> {
+  NotesCubit() : super(NotesCubitInitial());
+  List<NoteModel>? notes;
   fetchNotes() {
-    try {
-      var notesBox = Hive.box<NoteModel>(kNotesBox);
-      List<NoteModel> notes = notesBox.values.toList();
-      emit(NotesSuccess(notes: notes));
-    } catch (e) {
-      AddNoteFailure(e.toString());
-      emit(NotesFailure(errorMessage: e.toString()));
-    }
+    var notesBox = Hive.box<NoteModel>(kNotesBox);
+    notes = notesBox.values.toList();
+    // emit(NotesSuccess(notes: notes));
+
+    // AddNoteFailure(e.toString());
+    // emit(NotesFailure(errorMessage: e.toString()));
   }
 }
